@@ -11,7 +11,13 @@ import (
 )
 
 func main() {
-	dsn := "root:v]kAahcw@tcp(127.0.0.1:3306)/pustaka-api?charset=utf8mb4&parseTime=True&loc=Local"
+	user := ""
+	password := ""
+	host := "172.0.0.1"
+	port := "3306"
+	database := "pustaka-api"
+
+	dsn := user + ":" + password + "@tcp(" + host + ":" + port + ")/" + database + "?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("DB connection error")
